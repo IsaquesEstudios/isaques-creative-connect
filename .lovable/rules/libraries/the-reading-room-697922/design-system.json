@@ -1,0 +1,696 @@
+{
+  "meta": {
+    "name": "The Reading Room",
+    "package": "@ws-e0239b415e137675b698/69be04c7-ac9a-403e-b35f-36ac87d20b6a",
+    "version": "1.0.0",
+    "framework": "react",
+    "css_framework": "tailwind",
+    "starter_template": "custom_design_system",
+    "theme_files": [
+      "src/styles.css"
+    ],
+    "source_type": "local",
+    "source_manifest": {
+      "#enrichment": "671ef643193050e1b35d87373292bdf5d1a4337171a6ccaabf938da56c81d7c7",
+      ".dsignore": "2c7d76468c15bc0f1499420154f01ae3",
+      ".gitignore": "6059213806e442947666752f3db6bfdc",
+      ".lovable/meta.yaml": "86a17ac0d6b10fddfde4cdc325cb93a7",
+      ".lovable/plan/healt-design-system-starter-draft-2026-10-26.md": "abcc0160e24fc7f809ab671dd2b5cfe0",
+      ".lovable/project.json": "f0767902c7fb20ee3e4dc3964afc66bc",
+      ".lovable/sources.yaml": "d60f4c15e1261caabb4a28841c7246e9",
+      ".lovable/system.md": "4ffd1cd2556f02e1fe6eb73be5b15d5c",
+      "AGENTS.md": "7869fbf7123b8ec0b5b213b7ff8f34be",
+      "README.md": "219e70a5f6d3bcf9e4254d88e2c14a1c",
+      "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
+      "components.json": "30d3d035361ce807021f5c54620962e9",
+      "eslint.config.js": "07a67437fb1a45ab36d6de0145ff09de",
+      "lovable.toml": "956f55f44ff7952457c73fd1122d6bcd",
+      "mockupPreviewPlugin.ts": "a6cce6578baacdf702fc6a3fc3e44395",
+      "package.json": "abd0931f41ca4bdd66557f626bdb4d7d",
+      "public/favicon.ico": "9f504444f85a5af2eef9264b02ae40be",
+      "src/components/ui/accordion.tsx": "b3cd551b87419c380b4ec198a4d8f920",
+      "src/components/ui/badge.tsx": "fc46063e36b78e5ddf7f6ef6259600be",
+      "src/components/ui/button.tsx": "cf365093b2034b19eaed880a1d282017",
+      "src/components/ui/card.tsx": "be6feec02afb58e6e9bc7166bf075549",
+      "src/components/ui/input.tsx": "a836ac5c1ffb76f1377334baeeab795d",
+      "src/components/ui/layout.tsx": "588163dbfdc1f94e9a120704bdd616ea",
+      "src/components/ui/typography.tsx": "dcf748cb83c4b98fa12dcd8ff3869e27",
+      "src/index.ts": "cc673c8deca0358790a0d2963ce7df46",
+      "src/lib/utils.ts": "d9837f38cc05303254571985e3164050",
+      "src/mockup-preview.d.ts": "ae9d81e2b8514e13fd59b5b6bece9a64",
+      "src/routeTree.gen.ts": "0781e78c6c34e0a4901a0b4119d69a33",
+      "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
+      "src/routes/[__component].preview.$.tsx": "e63e4b151fa738d36cb24710d2dbea18",
+      "src/routes/[__mockup].preview.$.tsx": "bc9ea23fc46521b323ef461c9e77ff48",
+      "src/routes/__root.tsx": "c1bccb520ba73b2e4ee6757734292df5",
+      "src/routes/colors.tsx": "dc8021fad5c90faf182c9f5baef9968e",
+      "src/routes/components.tsx": "88a3c3dd3611a3c47af5581ce67fae5c",
+      "src/routes/icons.tsx": "11d0d4b844d65558ce07f3f33ca6956d",
+      "src/routes/index.tsx": "3e5139ef3aabb02ebf02f9359bbe3504",
+      "src/routes/typography.tsx": "f887d35dddd489209d8614e78f32192a",
+      "src/showcase/assets/blog.jpg": "e6aeaf88613469860a8bdf1117b11f0b",
+      "src/showcase/assets/case.jpg": "6c17ad45ec5d2d3a9bb05b55037c67fa",
+      "src/showcase/assets/team.jpg": "3c26daae95bbc5717a226d926418c89a",
+      "src/showcase/landing-demo.tsx": "af6f709753b14fb2116060316462f766",
+      "src/showcase/layout.tsx": "aa2b73b0d3bf9cf5100152c3948896b9",
+      "src/styles.css": "6f3def968fdbbacd1995de7df52a84a0",
+      "tsconfig.json": "5498ac94bab14bcff2c29aca84eba5b1",
+      "vite.config.ts": "2ad56ddcf2cf63319567ae6ffa363866",
+      "wrangler.jsonc": "680b897d48e44bcc65fe437c29b38f3b"
+    },
+    "pipeline_version": 8
+  },
+  "tokens": {
+    "color": [
+      {
+        "name": "--background",
+        "raw": "#131313",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--foreground",
+        "raw": "oklch(0.97 0 0)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--card",
+        "raw": "#1c1c1c",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--card-foreground",
+        "raw": "oklch(0.97 0 0)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--elevated",
+        "raw": "#262626",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--popover",
+        "raw": "#1c1c1c",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--popover-foreground",
+        "raw": "oklch(0.97 0 0)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--primary",
+        "raw": "#fabf00",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--primary-hover",
+        "raw": "#d9a600",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--primary-foreground",
+        "raw": "#131313",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--secondary",
+        "raw": "#262626",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--secondary-foreground",
+        "raw": "oklch(0.97 0 0)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--muted",
+        "raw": "#1c1c1c",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--muted-foreground",
+        "raw": "oklch(0.68 0 0)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--accent",
+        "raw": "oklch(0.3 0.06 90)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--accent-foreground",
+        "raw": "#fabf00",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--success",
+        "raw": "oklch(0.72 0.17 150)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--destructive",
+        "raw": "oklch(0.63 0.22 25)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--destructive-foreground",
+        "raw": "oklch(0.97 0 0)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--border",
+        "raw": "oklch(1 0 0 / 9%)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--input",
+        "raw": "oklch(1 0 0 / 12%)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--ring",
+        "raw": "#fabf00",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--surface-light",
+        "raw": "#f7f7f7",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--surface-white",
+        "raw": "#ffffff",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--surface-light-foreground",
+        "raw": "#131313",
+        "source": "src/styles.css"
+      }
+    ],
+    "typography": [
+      {
+        "name": "--font-sans",
+        "raw": "\"Manrope Variable\", \"Manrope\", ui-sans-serif, system-ui, sans-serif",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--font-display",
+        "raw": "\"Space Grotesk Variable\", \"Space Grotesk\", ui-sans-serif, system-ui, sans-serif",
+        "source": "src/styles.css"
+      }
+    ],
+    "radius": [
+      {
+        "name": "--radius-sm",
+        "raw": "calc(var(--radius) - 8px)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--radius-md",
+        "raw": "calc(var(--radius) - 4px)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--radius-xl",
+        "raw": "calc(var(--radius) + 4px)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--radius-2xl",
+        "raw": "calc(var(--radius) + 10px)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--radius",
+        "raw": "0.75rem",
+        "source": "src/styles.css"
+      }
+    ],
+    "shadow": [
+      {
+        "name": "--shadow-card",
+        "raw": "0 1px 0 oklch(1 0 0 / 5%) inset, 0 12px 32px oklch(0 0 0 / 40%)",
+        "source": "src/styles.css"
+      },
+      {
+        "name": "--shadow-glow",
+        "raw": "0 8px 28px oklch(0.83 0.17 87 / 30%)",
+        "source": "src/styles.css"
+      }
+    ],
+    "other": [
+      {
+        "name": "--gradient-hero",
+        "raw": "linear-gradient(180deg, transparent 0%, oklch(0.83 0.17 87 / 45%) 70%, transparent 100%)",
+        "source": "src/styles.css"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Button",
+      "file": "src/components/ui/button.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "primary",
+            "secondary",
+            "outline",
+            "ghost",
+            "link"
+          ],
+          "default": "primary"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg",
+            "icon",
+            "icon-sm"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "asChild",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "IconButton",
+      "file": "src/components/ui/button.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Badge",
+      "file": "src/components/ui/badge.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "primary",
+            "soft",
+            "outline",
+            "neutral"
+          ],
+          "default": "soft"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md"
+          ],
+          "default": "sm"
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "file": "src/components/ui/card.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "solid",
+            "outline",
+            "highlight"
+          ],
+          "default": "solid"
+        },
+        {
+          "name": "padding",
+          "type": "enum",
+          "values": [
+            "none",
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "CardTitle",
+      "file": "src/components/ui/card.tsx",
+      "import_path": ""
+    },
+    {
+      "name": "CardDescription",
+      "file": "src/components/ui/card.tsx",
+      "import_path": ""
+    },
+    {
+      "name": "ServiceCard",
+      "file": "src/components/ui/card.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "icon",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "href",
+          "type": "string"
+        },
+        {
+          "name": "linkLabel",
+          "type": "string",
+          "default": "Learn more"
+        }
+      ]
+    },
+    {
+      "name": "StatCard",
+      "file": "src/components/ui/card.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "solid",
+            "highlight",
+            "overlay"
+          ],
+          "default": "solid"
+        },
+        {
+          "name": "imageSrc",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "MediaCard",
+      "file": "src/components/ui/card.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "imageSrc",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "imageAlt",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "tags",
+          "type": "any"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "metrics",
+          "type": "object"
+        },
+        {
+          "name": "href",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "PricingCard",
+      "file": "src/components/ui/card.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "plan",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "price",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "period",
+          "type": "string",
+          "default": "/month"
+        },
+        {
+          "name": "features",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "featured",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "cta",
+          "type": "any",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "DisplayHeading",
+      "file": "src/components/ui/typography.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "as",
+          "type": "enum",
+          "values": [
+            "h1",
+            "h2",
+            "h3"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Highlight",
+      "file": "src/components/ui/typography.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "fill",
+            "text"
+          ],
+          "default": "fill"
+        }
+      ]
+    },
+    {
+      "name": "SectionHeader",
+      "file": "src/components/ui/typography.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "align",
+          "type": "enum",
+          "values": [
+            "left",
+            "center"
+          ],
+          "default": "left"
+        },
+        {
+          "name": "action",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "Input",
+      "file": "src/components/ui/input.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "shape",
+          "type": "enum",
+          "values": [
+            "rounded",
+            "pill"
+          ],
+          "default": "rounded"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Textarea",
+      "file": "src/components/ui/input.tsx",
+      "import_path": ""
+    },
+    {
+      "name": "Label",
+      "file": "src/components/ui/input.tsx",
+      "import_path": ""
+    },
+    {
+      "name": "Accordion",
+      "file": "src/components/ui/accordion.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "items",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "defaultOpen",
+          "type": "number",
+          "default": "-1"
+        }
+      ]
+    },
+    {
+      "name": "Navbar",
+      "file": "src/components/ui/layout.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "logo",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "links",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "action",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "AvatarStack",
+      "file": "src/components/ui/layout.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "people",
+          "type": "object",
+          "required": true
+        },
+        {
+          "name": "caption",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "LogoCloud",
+      "file": "src/components/ui/layout.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "logos",
+          "type": "object",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Footer",
+      "file": "src/components/ui/layout.tsx",
+      "import_path": "",
+      "props": [
+        {
+          "name": "lead",
+          "type": "any"
+        },
+        {
+          "name": "columns",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "legal",
+          "type": "any"
+        }
+      ]
+    }
+  ]
+}

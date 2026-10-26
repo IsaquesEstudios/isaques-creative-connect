@@ -1,0 +1,98 @@
+@import "tw-animate-css";
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/space-grotesk";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Manrope Variable", "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 10px);
+  --shadow-card: var(--shadow-card);
+  --shadow-glow: var(--shadow-glow);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-elevated: var(--elevated);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-surface-light: var(--surface-light);
+  --color-surface-white: var(--surface-white);
+  --color-surface-light-foreground: var(--surface-light-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* Dark-first system: the default theme is the near-black canvas. */
+:root {
+  --radius: 0.75rem;
+  --background: #131313;
+  --foreground: oklch(0.97 0 0);
+  --card: #1c1c1c;
+  --card-foreground: oklch(0.97 0 0);
+  --elevated: #262626;
+  --popover: #1c1c1c;
+  --popover-foreground: oklch(0.97 0 0);
+  --primary: #fabf00;
+  --primary-hover: #d9a600;
+  --primary-foreground: #131313;
+  --secondary: #262626;
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: #1c1c1c;
+  --muted-foreground: oklch(0.68 0 0);
+  --accent: oklch(0.3 0.06 90);
+  --accent-foreground: #fabf00;
+  --success: oklch(0.72 0.17 150);
+  --destructive: oklch(0.63 0.22 25);
+  --destructive-foreground: oklch(0.97 0 0);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: #fabf00;
+  --surface-light: #f7f7f7;
+  --surface-white: #ffffff;
+  --surface-light-foreground: #131313;
+  --gradient-hero: linear-gradient(180deg, transparent 0%, oklch(0.83 0.17 87 / 45%) 70%, transparent 100%);
+  --shadow-card: 0 1px 0 oklch(1 0 0 / 5%) inset, 0 12px 32px oklch(0 0 0 / 40%);
+  --shadow-glow: 0 8px 28px oklch(0.83 0.17 87 / 30%);
+}
+
+@utility bg-gradient-hero {
+  background-image: var(--gradient-hero);
+}
+
+@utility text-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
