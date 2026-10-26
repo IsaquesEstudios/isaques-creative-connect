@@ -75,6 +75,8 @@ const steps = [
   { t: "Performance", d: "Executamos, medimos e evoluímos com o seu negócio." },
 ];
 
+const homeServices = services.filter((s) => s.slug !== "posicionamento-digital");
+
 const audiences = [
   { t: "Pequenas empresas", d: "Uma presença profissional e novos caminhos para conquistar clientes." },
   { t: "Médias empresas", d: "Estratégia para escalar vendas e consolidar seu posicionamento." },
@@ -107,11 +109,21 @@ function Index() {
           </div>
         </section>
 
-        <section id="solucoes" className="scroll-mt-20 bg-background py-20">
+        <section id="solucoes" className="scroll-mt-20 overflow-hidden bg-background py-20">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader eyebrow="O que fazemos" title="Soluções para crescer." action={<Button asChild size="sm" variant="primary"><a href="#contato">Encontrar minha solução <ArrowUpRight aria-hidden /></a></Button>} />
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              {services.map((s) => <ServiceCard key={s.slug} icon={<ServiceIcon name={s.icon} />} title={s.title} description={s.short} href={`/servicos/${s.slug}`} linkLabel="Conhecer solução" />)}
+          </div>
+          <div className="services-marquee mt-10">
+            <div className="services-marquee-track">
+              {[0, 1].map((copy) => (
+                <div key={copy} className="services-marquee-group" aria-hidden={copy === 1} inert={copy === 1}>
+                  {homeServices.map((s) => (
+                    <div key={s.slug} className="services-marquee-item">
+                      <ServiceCard icon={<ServiceIcon name={s.icon} />} title={s.title} description={s.short} href={`/servicos/${s.slug}`} linkLabel="Conhecer solução" />
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
         </section>
