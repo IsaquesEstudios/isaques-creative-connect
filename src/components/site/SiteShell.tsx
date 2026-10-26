@@ -27,6 +27,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 links: [
                   { label: "Sobre Nós", href: "/sobre-nos" },
                   { label: "Blog", href: "/blog" },
+                  { label: "Onde Atendemos", href: "/empresa-de-marketing-digital-em" },
                   { label: "Perguntas Frequentes", href: "/#faq" },
                   { label: "Contato", href: "/contato" },
                 ],
