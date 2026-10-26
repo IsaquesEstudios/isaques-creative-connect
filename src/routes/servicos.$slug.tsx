@@ -70,7 +70,7 @@ function ServicePage() {
               <ol className="flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">
                 <li><Link to="/" className="hover:text-foreground">Início</Link></li>
                 <li aria-hidden><ChevronRight className="size-4" /></li>
-                <li><a href="/#solucoes" className="hover:text-foreground">Serviços</a></li>
+                <li><Link to="/servicos" className="hover:text-foreground">Serviços</Link></li>
                 <li aria-hidden><ChevronRight className="size-4" /></li>
                 <li aria-current="page" className="text-primary">{s.title}</li>
               </ol>
