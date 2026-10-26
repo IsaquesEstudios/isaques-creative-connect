@@ -1,0 +1,11 @@
+node_modules
+.output
+dist
+.wrangler
+.git
+.gitignore
+.lovable
+.dev-server
+tmp
+*.log
+.DS_Store
