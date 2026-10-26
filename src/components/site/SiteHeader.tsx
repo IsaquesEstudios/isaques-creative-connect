@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button, IconButton } from "@/design-system/the-reading-room-697922";
-import { SITE_NAME, services } from "@/lib/site";
+import { SITE_NAME, menuTitle, services } from "@/lib/site";
 import logoAsset from "@/assets/logo-isaques.png.asset.json";
 
 export function Logo() {
@@ -45,7 +45,7 @@ export function SiteHeader() {
                       params={{ slug: s.slug }}
                       className="block rounded-md px-3 py-2 text-sm text-popover-foreground hover:bg-elevated hover:text-primary"
                     >
-                      {s.title}
+                      {menuTitle(s.title)}
                     </Link>
                   </li>
                 ))}
@@ -89,7 +89,7 @@ export function SiteHeader() {
                   {services.map((s) => (
                     <li key={s.slug}>
                       <Link to="/servicos/$slug" params={{ slug: s.slug }} onClick={() => setOpen(false)} className="block py-2 text-sm text-muted-foreground">
-                        {s.title}
+                        {menuTitle(s.title)}
                       </Link>
                     </li>
                   ))}
