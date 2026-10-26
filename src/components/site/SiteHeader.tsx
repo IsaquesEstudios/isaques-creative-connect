@@ -65,7 +65,7 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="hidden sm:inline-flex">
-            <a href="/#contato">Agendar Diagnóstico</a>
+            <Link to="/contato">Agendar Diagnóstico</Link>
           </Button>
           <IconButton aria-label={open ? "Fechar menu" : "Abrir menu"} className="lg:hidden" onClick={() => setOpen(!open)}>
             {open ? <X /> : <Menu />}
@@ -75,16 +75,14 @@ export function SiteHeader() {
       {open && (
         <nav aria-label="Menu móvel" className="border-t border-border px-6 py-4 lg:hidden">
           <ul className="space-y-1">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)} className="block py-2 text-foreground">
-                  {l.label}
-                </a>
-              </li>
-            ))}
+            <li>
+              <Link to="/" onClick={() => setOpen(false)} className="block py-2 text-foreground">
+                Início
+              </Link>
+            </li>
             <li>
               <button type="button" onClick={() => setSolOpen(!solOpen)} className="flex w-full items-center justify-between py-2 text-foreground">
-                Soluções <ChevronDown aria-hidden className="size-4" />
+                Serviços <ChevronDown aria-hidden className="size-4" />
               </button>
               {solOpen && (
                 <ul className="space-y-1 pl-4">
@@ -95,17 +93,24 @@ export function SiteHeader() {
                       </Link>
                     </li>
                   ))}
+                  <li>
+                    <Link to="/servicos" onClick={() => setOpen(false)} className="block py-2 text-sm font-semibold text-primary">
+                      Ver todas as soluções
+                    </Link>
+                  </li>
                 </ul>
               )}
             </li>
-            <li>
-              <a href="/#faq" onClick={() => setOpen(false)} className="block py-2 text-foreground">
-                Perguntas Frequentes
-              </a>
-            </li>
+            {links.slice(1).map((l) => (
+              <li key={l.to}>
+                <Link to={l.to} onClick={() => setOpen(false)} className="block py-2 text-foreground">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
           </ul>
           <Button asChild className="mt-4 w-full">
-            <a href="/#contato" onClick={() => setOpen(false)}>Agendar Diagnóstico</a>
+            <Link to="/contato" onClick={() => setOpen(false)}>Agendar Diagnóstico</Link>
           </Button>
         </nav>
       )}
