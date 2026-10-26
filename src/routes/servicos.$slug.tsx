@@ -116,7 +116,7 @@ function ServicePage() {
           <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-5">
             <div className="space-y-6 text-muted-foreground lg:col-span-3">
               <Badge>O desafio empresarial</Badge>
-              <DisplayHeading id="desafio" className="text-foreground">{c.challengeTitle}</DisplayHeading>
+              <DisplayHeading id="desafio">{c.challengeTitle}</DisplayHeading>
               {c.challenge.map((p) => <p key={p}>{p}</p>)}
             </div>
             <div className="lg:col-span-2 lg:pt-16">
@@ -154,12 +154,14 @@ function ServicePage() {
         <section aria-labelledby="metodo" className="bg-background py-20">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader id="metodo" eyebrow="Nosso método" title="Da estratégia à execução." />
-            <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {c.method.map((st, i) => (
-                <li key={st.title} className="border-t border-border pt-6">
-                  <span className="font-display text-4xl font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-6 font-display text-xl font-semibold">{st.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{st.text}</p>
+                <li key={st.title}>
+                  <Card padding="lg" className="h-full">
+                    <span className="font-display text-4xl font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="mt-6 font-display text-xl font-semibold">{st.title}</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">{st.text}</p>
+                  </Card>
                 </li>
               ))}
             </ol>
@@ -169,13 +171,13 @@ function ServicePage() {
         <section aria-labelledby="entregaveis" className="bg-background py-20">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader id="entregaveis" eyebrow="Entregáveis e benefícios" title="Valor para seu negócio." />
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
+            <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {c.deliverables.map((d) => (
-                <Card key={d.title} padding="lg">
+                <div key={d.title} className="border-t border-border pt-6">
                   <Check aria-hidden className="size-6 text-primary" />
                   <CardTitle className="mt-4">{d.title}</CardTitle>
                   <CardDescription className="mt-3">{d.text}</CardDescription>
-                </Card>
+                </div>
               ))}
             </div>
           </div>
