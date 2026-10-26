@@ -80,33 +80,34 @@ function ServicePage() {
     <SiteShell>
       <article>
         <section className="relative overflow-hidden bg-background">
-          <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 text-center md:pb-10 md:pt-20">
-            <nav aria-label="Trilha de navegação">
-              <ol className="flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">
-                <li><Link to="/" className="hover:text-foreground">Início</Link></li>
-                <li aria-hidden><ChevronRight className="size-4" /></li>
-                <li><Link to="/servicos" className="hover:text-foreground">Serviços</Link></li>
-                <li aria-hidden><ChevronRight className="size-4" /></li>
-                <li aria-current="page" className="text-primary">{s.title}</li>
-              </ol>
-            </nav>
-            <div className="mt-8 flex justify-center">
-              <Badge variant="outline" size="md">Solução para empresas</Badge>
+          <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 pb-16 pt-10 md:pt-16 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <nav aria-label="Trilha de navegação">
+                <ol className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                  <li><Link to="/" className="hover:text-foreground">Início</Link></li>
+                  <li aria-hidden><ChevronRight className="size-4" /></li>
+                  <li><Link to="/servicos" className="hover:text-foreground">Serviços</Link></li>
+                  <li aria-hidden><ChevronRight className="size-4" /></li>
+                  <li aria-current="page" className="text-primary">{s.title}</li>
+                </ol>
+              </nav>
+              <div className="mt-8">
+                <Badge variant="outline" size="md">Solução para empresas</Badge>
+              </div>
+              <DisplayHeading as="h1" size="xl" className="mt-5">{c.h1}</DisplayHeading>
+              <p className="mt-5 max-w-xl text-sm text-muted-foreground">{c.subtitle}</p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button asChild size="sm"><a href="#contato">Agendar diagnóstico <ArrowUpRight aria-hidden /></a></Button>
+                <Button asChild size="sm" variant="outline">
+                  <a href={whatsappLink(`Olá! Tenho interesse em: ${s.title}`)} target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+                </Button>
+              </div>
             </div>
-            <DisplayHeading as="h1" size="xl" className="mx-auto mt-5 max-w-3xl">{c.h1}</DisplayHeading>
-            <p className="mx-auto mt-5 max-w-2xl text-sm text-muted-foreground">{c.subtitle}</p>
-            <div className="mt-6 flex flex-wrap justify-center gap-4">
-              <Button asChild size="sm"><a href="#contato">Agendar diagnóstico <ArrowUpRight aria-hidden /></a></Button>
-              <Button asChild size="sm" variant="outline">
-                <a href={whatsappLink(`Olá! Tenho interesse em: ${s.title}`)} target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
-              </Button>
-            </div>
-          </div>
-          <div className="agency-photo relative mx-auto max-w-7xl overflow-hidden">
-            <img src={teamPhoto} alt="Imagem ilustrativa de profissionais colaborando em uma estratégia de marketing" width={1536} height={1024} className="size-full object-cover" />
-            <div className="photo-caption absolute bottom-0 left-0 flex w-full flex-wrap items-end justify-between gap-4 p-6 md:p-10">
-              <div><p className="font-display text-2xl font-bold md:text-5xl">Ideias grandes.<br />Estratégias reais.</p><p className="mt-3 text-xs uppercase">Isaques Estúdios / {s.title}</p></div>
-              <a href="#contato" className="flex items-center gap-3 text-sm">Vamos conversar <ArrowUpRight aria-hidden /></a>
+            <div className="relative overflow-hidden rounded-2xl border border-border">
+              <img src={serviceImages[s.slug].src} alt={serviceImages[s.slug].alt} width={1536} height={1024} className="aspect-[3/2] size-full object-cover" />
+              <div className="photo-caption absolute bottom-0 left-0 w-full p-6">
+                <p className="text-xs uppercase tracking-wider">Isaques Estúdios / {s.title}</p>
+              </div>
             </div>
           </div>
         </section>
