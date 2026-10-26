@@ -49,12 +49,19 @@ export function SiteHeader() {
                     </Link>
                   </li>
                 ))}
+                <li className="border-t border-border">
+                  <Link to="/servicos" className="block rounded-md px-3 py-2 text-sm font-semibold text-primary hover:bg-elevated">
+                    Ver todas as soluções
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
-          <a href="/#faq" className="text-sm text-muted-foreground hover:text-foreground">
-            Perguntas Frequentes
-          </a>
+          {links.slice(1).map((l) => (
+            <Link key={l.to} to={l.to} className="text-sm text-muted-foreground hover:text-foreground">
+              {l.label}
+            </Link>
+          ))}
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="hidden sm:inline-flex">
