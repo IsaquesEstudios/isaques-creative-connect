@@ -31,7 +31,7 @@ export function ContactSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-3xl space-y-4">
           <DisplayHeading id="contato-titulo" size="xl">
-            Agende a Análise do Plano de Negócios da Sua Empresa
+            Agende Seu Diagnóstico Estratégico
           </DisplayHeading>
           <p className="text-lg text-muted-foreground">
             Escolha abaixo a forma mais conveniente para iniciar nossa conversa. Preencha o formulário para agendarmos sua reunião

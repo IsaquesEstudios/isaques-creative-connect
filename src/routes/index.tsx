@@ -18,7 +18,7 @@ import { ContactSection } from "@/components/site/ContactSection";
 import { ServiceIcon } from "@/components/site/ServiceIcon";
 import { SITE_NAME, homeFaq, services, whatsappLink } from "@/lib/site";
 
-const title = "Agência de Marketing para Empresas | Isaques Estúdios";
+const title = "Empresa de Marketing Digital | Isaques Estúdios";
 const description =
   "Agência de marketing para empresas com +8 anos de mercado. Diagnóstico do plano de negócios, tráfego pago, SEO, sites e branding sob medida com foco em ROI.";
 
@@ -93,7 +93,7 @@ function Index() {
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32">
           <Badge variant="outline" size="md">Consultoria Estratégica e Performance Digital</Badge>
           <DisplayHeading as="h1" size="xl" className="mt-6 max-w-5xl">
-            <Highlight variant="text">Agência de Marketing para Empresas</Highlight>: Estratégias Sob Medida para Escalar os Seus Resultados
+            Empresa de Marketing <Highlight variant="text">Digital</Highlight>
           </DisplayHeading>
           <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
             Não acreditamos em pacotes prontos ou fórmulas genéricas. Analisamos profundamente o plano de negócios da sua empresa, mapeamos
@@ -118,7 +118,7 @@ function Index() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
           <div className="space-y-6">
             <Badge>+8 anos de mercado</Badge>
-            <DisplayHeading>Mais de 8 Anos Transformando a Presença Digital de Empresas em Resultados Sólidos</DisplayHeading>
+            <DisplayHeading>Mais de 8 Anos de Resultados em Marketing Digital</DisplayHeading>
             <p className="text-muted-foreground">
               Em um mercado repleto de promessas passageiras, nossa trajetória de mais de 8 anos foi construída sobre um único pilar: a entrega
               consistente de resultados reais. Atuamos lado a lado com empresários e diretores que buscam não apenas visibilidade, mas
@@ -145,7 +145,7 @@ function Index() {
           <div className="max-w-3xl space-y-4">
             <p className="text-xs font-semibold uppercase tracking-wider">Nossa metodologia exclusiva</p>
             <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">
-              Por Que Não Oferecemos Pacotes Fixos? Conheça Nosso Diagnóstico Estratégico
+              Diagnóstico Estratégico Sob Medida
             </h2>
             <p className="text-lg">
               Cada empresa possui um momento de maturidade diferente. Aplicar a mesma estratégia para negócios distintos é o principal motivo
@@ -169,7 +169,7 @@ function Index() {
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeader
             eyebrow="Soluções"
-            title="Soluções Completas de Marketing Digital e Posicionamento Corporativo"
+            title="Soluções de Marketing Digital"
             description="Após o diagnóstico do seu negócio, alocamos as ferramentas exatas para destravar o seu crescimento. Conheça nossas frentes de atuação (clique em cada serviço para ver os detalhes):"
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -192,7 +192,7 @@ function Index() {
       {/* PARA QUEM */}
       <section className="bg-card py-24">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeader align="center" eyebrow="Para quem é" title="Uma Agência de Marketing Estruturada para Pequenos, Médios e Grandes Negócios" className="mx-auto" />
+          <SectionHeader align="center" eyebrow="Para quem é" title="Para Empresas de Todos os Portes" className="mx-auto" />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {audiences.map((a, i) => (
               <Card key={a.t} variant={i === 1 ? "highlight" : "outline"} padding="lg">
@@ -208,7 +208,7 @@ function Index() {
       <section className="bg-surface-white py-24 text-surface-light-foreground">
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="max-w-4xl font-display text-3xl font-bold tracking-tight md:text-4xl">
-            O Que Define uma Agência de Marketing para Empresas Orientada a Resultados?
+            Marketing Digital Orientado a Resultados
           </h2>
           <div className="mt-12 grid gap-10 md:grid-cols-3">
             {pillars.map((p) => (
@@ -224,7 +224,7 @@ function Index() {
       {/* FAQ */}
       <section id="faq" className="scroll-mt-20 bg-card py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-3">
-          <SectionHeader eyebrow="FAQ" title="Perguntas Frequentes sobre Nossa Consultoria e Serviços de Marketing" />
+          <SectionHeader eyebrow="FAQ" title="Perguntas Frequentes" />
           <Accordion className="lg:col-span-2" items={homeFaq} defaultOpen={0} />
         </div>
       </section>
