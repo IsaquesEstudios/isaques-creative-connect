@@ -1,12 +1,8 @@
 @import "tailwindcss" source(none);
+@import "./design-system/the-reading-room-697922/styles.css";
 @source "../src";
+@source "./design-system/the-reading-room-697922/**/*.{ts,tsx,css}";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: system-ui, -apple-system, sans-serif;
+html {
+  scroll-behavior: smooth;
 }
