@@ -6,3 +6,9 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Pedido do cliente: títulos com peso de fonte maior que o padrão do design system. */
+h1,
+h2 {
+  font-weight: 700;
+}

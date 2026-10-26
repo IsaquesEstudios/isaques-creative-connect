@@ -11,7 +11,7 @@ export interface ServiceContent {
 
 export const serviceContent: Record<string, ServiceContent> = {
   "trafego-pago-empresas": {
-    h1: "Gestão de Tráfego Pago para Empresas: Google Ads, Meta Ads e LinkedIn Ads",
+    h1: "Gestão de Tráfego Pago para Empresas",
     subtitle:
       "Campanhas de alta performance que colocam sua empresa diante do cliente certo, no momento certo, com controle rigoroso do investimento e foco absoluto em custo por lead e retorno sobre investimento.",
     challengeTitle: "Sem tráfego qualificado, o concorrente fica com o cliente que procurava por você",
@@ -71,7 +71,7 @@ export const serviceContent: Record<string, ServiceContent> = {
   },
 
   "otimizacao-de-seo": {
-    h1: "Consultoria e Otimização de SEO para Empresas: Domine o Topo do Google",
+    h1: "Otimização de SEO para Empresas",
     subtitle:
       "Construa um ativo digital próprio que gera tráfego qualificado todos os meses, sem depender exclusivamente do pagamento por clique.",
     challengeTitle: "Quem não aparece na primeira página do Google, praticamente não existe para o comprador",
@@ -103,7 +103,7 @@ export const serviceContent: Record<string, ServiceContent> = {
   },
 
   "criacao-de-sites-profissionais": {
-    h1: "Criação de Sites Profissionais e Landing Pages de Alta Conversão",
+    h1: "Criação de Sites Profissionais",
     subtitle:
       "Seu site não é um cartão de visitas online: é a sede digital da empresa e o seu principal vendedor, trabalhando 24 horas por dia, 7 dias por semana.",
     challengeTitle: "Um site amador custa clientes todos os dias, mesmo que ninguém perceba",
@@ -135,7 +135,7 @@ export const serviceContent: Record<string, ServiceContent> = {
   },
 
   "posicionamento-digital": {
-    h1: "Posicionamento Digital para Empresas: Autoridade e Liderança de Mercado",
+    h1: "Posicionamento Digital para Empresas",
     subtitle:
       "Transforme a qualidade real da sua empresa em percepção de valor na internet e deixe de competir apenas por preço.",
     challengeTitle: "Empresas excelentes perdem vendas para concorrentes inferiores por falha de percepção",
@@ -167,7 +167,7 @@ export const serviceContent: Record<string, ServiceContent> = {
   },
 
   "gestao-de-redes-sociais": {
-    h1: "Gestão Estratégica de Redes Sociais para Empresas",
+    h1: "Gestão de Redes Sociais para Empresas",
     subtitle:
       "Muito além de postagens para preencher calendário: construímos uma vitrine ativa que valida a seriedade da sua empresa e apoia o fechamento de vendas.",
     challengeTitle: "Perfis abandonados ou amadores fazem o cliente desconfiar antes mesmo do contato",
@@ -199,7 +199,7 @@ export const serviceContent: Record<string, ServiceContent> = {
   },
 
   "identidade-visual-e-branding": {
-    h1: "Identidade Visual Corporativa e Branding para Empresas",
+    h1: "Identidade Visual e Branding",
     subtitle:
       "Uma marca à altura do porte e da maturidade da sua empresa, capaz de atrair clientes de maior ticket médio e transmitir confiança à primeira vista.",
     challengeTitle: "Uma identidade amadora ou defasada afasta os clientes que mais valem a pena",
@@ -231,7 +231,7 @@ export const serviceContent: Record<string, ServiceContent> = {
   },
 
   "cobertura-de-eventos-corporativos": {
-    h1: "Cobertura de Eventos Corporativos: Captação Audiovisual e Marketing em Tempo Real",
+    h1: "Cobertura de Eventos Corporativos",
     subtitle:
       "Transformamos feiras, convenções, treinamentos e inaugurações em prova social, autoridade e conteúdo para meses de comunicação.",
     challengeTitle: "Eventos sem cobertura profissional desperdiçam um dos maiores investimentos da empresa",
