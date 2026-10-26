@@ -48,3 +48,41 @@ h2 {
     height: calc(var(--spacing) * 72);
   }
 }
+
+/* Carrossel automático de soluções: trilha duplicada desliza em loop contínuo. */
+.services-marquee {
+  overflow: hidden;
+}
+
+.services-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: services-marquee 45s linear infinite;
+}
+
+.services-marquee:hover .services-marquee-track {
+  animation-play-state: paused;
+}
+
+.services-marquee-group {
+  display: flex;
+  gap: calc(var(--spacing) * 4);
+  padding-right: calc(var(--spacing) * 4);
+}
+
+.services-marquee-item {
+  width: calc(var(--spacing) * 88);
+  flex-shrink: 0;
+}
+
+@keyframes services-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-marquee-track {
+    animation: none;
+  }
+}
