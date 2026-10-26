@@ -6,8 +6,23 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { ContactSection } from "@/components/site/ContactSection";
 import { ServiceIcon } from "@/components/site/ServiceIcon";
 import { SITE_NAME, getService, services, whatsappLink } from "@/lib/site";
-import teamPhoto from "@/assets/agency-team.jpg";
-import workPhoto from "@/assets/creative-work.jpg";
+import trafegoImg from "@/assets/services/trafego-pago-empresas.jpg";
+import seoImg from "@/assets/services/otimizacao-de-seo.jpg";
+import sitesImg from "@/assets/services/criacao-de-sites-profissionais.jpg";
+import posicionamentoImg from "@/assets/services/posicionamento-digital.jpg";
+import redesImg from "@/assets/services/gestao-de-redes-sociais.jpg";
+import brandingImg from "@/assets/services/identidade-visual-e-branding.jpg";
+import eventosImg from "@/assets/services/cobertura-de-eventos-corporativos.jpg";
+
+const serviceImages: Record<string, { src: string; alt: string }> = {
+  "trafego-pago-empresas": { src: trafegoImg, alt: "Painel de métricas de campanhas de tráfego pago com gráficos em laranja" },
+  "otimizacao-de-seo": { src: seoImg, alt: "Notebook com curva de crescimento de busca orgânica e lupa sobre resultados de pesquisa" },
+  "criacao-de-sites-profissionais": { src: sitesImg, alt: "Computador e celular exibindo o layout de um site profissional em tons de laranja" },
+  "posicionamento-digital": { src: posicionamentoImg, alt: "Mesa de estratégia com bússola e alvo em laranja durante reunião de posicionamento" },
+  "gestao-de-redes-sociais": { src: redesImg, alt: "Criadora de conteúdo gravando vídeo com celular e iluminação circular laranja" },
+  "identidade-visual-e-branding": { src: brandingImg, alt: "Materiais de identidade visual em preto e laranja sobre mesa escura" },
+  "cobertura-de-eventos-corporativos": { src: eventosImg, alt: "Fotógrafo cobrindo evento corporativo com palco iluminado em laranja" },
+};
 
 export const Route = createFileRoute("/servicos/$slug")({
   loader: ({ params }) => {
