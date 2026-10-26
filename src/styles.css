@@ -12,3 +12,39 @@ h1,
 h2 {
   font-weight: 700;
 }
+
+/* Deliberate reference match: orange replaces gold only on the homepage. */
+.reference-home {
+  --background: #090909;
+  --card: #202020;
+  --primary: #ff872b;
+  --primary-hover: #ed7520;
+  --primary-foreground: #090909;
+  --accent: #30251c;
+  --accent-foreground: #ff872b;
+  --ring: #ff872b;
+}
+
+.reference-home h1,
+.reference-home h2 {
+  font-family: var(--font-display);
+  letter-spacing: 0;
+}
+
+.agency-photo {
+  height: calc(var(--spacing) * 112);
+}
+
+.agency-photo img {
+  object-position: center;
+}
+
+.photo-caption {
+  background-image: linear-gradient(transparent, var(--background));
+}
+
+@media (width < 48rem) {
+  .agency-photo {
+    height: calc(var(--spacing) * 96);
+  }
+}

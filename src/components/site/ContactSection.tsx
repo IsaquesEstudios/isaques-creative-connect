@@ -6,7 +6,8 @@ import { whatsappLink } from "@/lib/site";
 const selectClass =
   "flex h-11 w-full rounded-md border border-input bg-elevated px-4 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring";
 
-export function ContactSection() {
+export function ContactSection({ variant = "default" }: { variant?: "default" | "reference" }) {
+  const reference = variant === "reference";
   const [sent, setSent] = useState(false);
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -27,19 +28,19 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contato" aria-labelledby="contato-titulo" className="scroll-mt-20 border-t-4 border-primary bg-background py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="contato" aria-labelledby="contato-titulo" className={reference ? "scroll-mt-20 bg-background py-20" : "scroll-mt-20 border-t-4 border-primary bg-background py-24"}>
+      <div className={reference ? "mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2" : "mx-auto max-w-7xl px-6"}>
         <div className="max-w-3xl space-y-4">
           <DisplayHeading id="contato-titulo" size="xl">
-            Agende Seu Diagnóstico Estratégico
+            {reference ? <>Vamos<br /><span className="text-primary">conversar?</span></> : "Agende Seu Diagnóstico Estratégico"}
           </DisplayHeading>
           <p className="text-lg text-muted-foreground">
-            Escolha abaixo a forma mais conveniente para iniciar nossa conversa. Preencha o formulário para agendarmos sua reunião
-            apresentativa ou fale agora mesmo com nossa equipe via WhatsApp.
+            {reference ? "O próximo capítulo do seu negócio começa com uma boa conversa." : "Escolha abaixo a forma mais conveniente para iniciar nossa conversa. Preencha o formulário para agendarmos sua reunião apresentativa ou fale agora mesmo com nossa equipe via WhatsApp."}
           </p>
+          {reference && <Button asChild variant="link"><a href={whatsappLink()} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden /> Falar pelo WhatsApp</a></Button>}
         </div>
-        <div className="mt-12 grid gap-8 lg:grid-cols-5">
-          <Card padding="lg" className="lg:col-span-3">
+        <div className={reference ? "grid gap-8" : "mt-12 grid gap-8 lg:grid-cols-5"}>
+          <Card padding="lg" className={reference ? undefined : "lg:col-span-3"}>
             <form onSubmit={onSubmit} className="grid gap-5 sm:grid-cols-2">
               <Field id="nome" label="Nome Completo" />
               <Field id="empresa" label="Nome da Empresa" />
@@ -68,7 +69,7 @@ export function ContactSection() {
               </div>
             </form>
           </Card>
-          <Card variant="highlight" padding="lg" className="flex flex-col justify-between gap-8 lg:col-span-2">
+          {!reference && <Card variant="highlight" padding="lg" className="flex flex-col justify-between gap-8 lg:col-span-2">
             <div className="space-y-4">
               <MessageCircle aria-hidden className="size-10" />
               <h3 className="font-display text-2xl font-bold">Prefere um atendimento imediato?</h3>
@@ -77,7 +78,7 @@ export function ContactSection() {
             <Button asChild variant="secondary" size="lg" className="w-full">
               <a href={whatsappLink()} target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
             </Button>
-          </Card>
+          </Card>}
         </div>
       </div>
     </section>
