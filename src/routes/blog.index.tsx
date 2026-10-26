@@ -9,7 +9,7 @@ const title = "Blog | Isaques Estúdios";
 const description =
   "Artigos sobre marketing digital para empresas: tráfego pago, SEO, sites que vendem, branding e estratégia. Conteúdo da Isaques Estúdios.";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title },

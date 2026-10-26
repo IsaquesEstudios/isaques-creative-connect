@@ -10,9 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as SobreNosRouteImport } from './routes/sobre-nos'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ServicosIndexRouteImport } from './routes/servicos.index'
 import { Route as ServicosSlugRouteImport } from './routes/servicos.$slug'
@@ -24,11 +24,6 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContatoRoute = ContatoRouteImport.update({
   id: '/contato',
   path: '/contato',
@@ -37,6 +32,11 @@ const ContatoRoute = ContatoRouteImport.update({
 const SobreNosRoute = SobreNosRouteImport.update({
   id: '/sobre-nos',
   path: '/sobre-nos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
@@ -69,22 +69,22 @@ const Char91__mockupChar93PreviewSplatRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/sobre-nos': typeof SobreNosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/servicos/$slug': typeof ServicosSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/sobre-nos': typeof SobreNosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/servicos/$slug': typeof ServicosSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/servicos': typeof ServicosIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
@@ -92,11 +92,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/blog': typeof BlogRouteWithChildren
   '/contato': typeof ContatoRoute
   '/sobre-nos': typeof SobreNosRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/servicos/$slug': typeof ServicosSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
@@ -105,33 +105,33 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/blog'
     | '/contato'
     | '/sobre-nos'
     | '/blog/$slug'
     | '/servicos/$slug'
+    | '/blog/'
     | '/servicos/'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/blog'
     | '/contato'
     | '/sobre-nos'
     | '/blog/$slug'
     | '/servicos/$slug'
+    | '/blog'
     | '/servicos'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
   id:
     | '__root__'
     | '/'
-    | '/blog'
     | '/contato'
     | '/sobre-nos'
     | '/blog/$slug'
     | '/servicos/$slug'
+    | '/blog/'
     | '/servicos/'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
@@ -139,10 +139,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BlogRoute: typeof BlogRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   SobreNosRoute: typeof SobreNosRoute
   ServicosSlugRoute: typeof ServicosSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   ServicosIndexRoute: typeof ServicosIndexRoute
   Char91__componentChar93PreviewSplatRoute: typeof Char91__componentChar93PreviewSplatRoute
   Char91__mockupChar93PreviewSplatRoute: typeof Char91__mockupChar93PreviewSplatRoute
@@ -157,13 +157,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contato': {
       id: '/contato'
       path: '/contato'
@@ -176,6 +169,13 @@ declare module '@tanstack/react-router' {
       path: '/sobre-nos'
       fullPath: '/sobre-nos'
       preLoaderRoute: typeof SobreNosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/$slug': {
@@ -216,22 +216,12 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface BlogRouteChildren {
-  BlogSlugRoute: typeof BlogSlugRoute
-}
-
-const BlogRouteChildren: BlogRouteChildren = {
-  BlogSlugRoute: BlogSlugRoute,
-}
-
-const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BlogRoute: BlogRouteWithChildren,
   ContatoRoute: ContatoRoute,
   SobreNosRoute: SobreNosRoute,
   ServicosSlugRoute: ServicosSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   ServicosIndexRoute: ServicosIndexRoute,
   Char91__componentChar93PreviewSplatRoute:
     Char91__componentChar93PreviewSplatRoute,
