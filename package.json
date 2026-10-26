@@ -33,6 +33,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
     "lovable-tagger": "^1.2.0",
+    "nitro": "^3.0.260903-beta",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^8.0.16"
@@ -42,9 +43,11 @@
   "scripts": {
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "build:vps": "vite build --config vite.config.vps.ts",
     "dev": "vite dev",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "node .output/server/index.mjs"
   },
   "type": "module"
 }
