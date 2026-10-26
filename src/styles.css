@@ -8,6 +8,7 @@ html {
 }
 
 /* Pedido do cliente: títulos com peso de fonte maior que o padrão do design system. */
-.text-display {
+h1,
+h2 {
   font-weight: 700;
 }
