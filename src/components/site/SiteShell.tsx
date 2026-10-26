@@ -25,10 +25,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
               {
                 title: "Agência",
                 links: [
-                  { label: "8 Anos de Experiência", href: "/#experiencia" },
-                  { label: "Metodologia", href: "/#metodologia" },
+                  { label: "Sobre Nós", href: "/sobre-nos" },
+                  { label: "Blog", href: "/blog" },
                   { label: "Perguntas Frequentes", href: "/#faq" },
-                  { label: "Agendar Diagnóstico", href: "/#contato" },
+                  { label: "Contato", href: "/contato" },
                 ],
               },
               { title: "Contato", links: [{ label: `WhatsApp ${WHATSAPP_DISPLAY}`, href: whatsappLink() }] },
