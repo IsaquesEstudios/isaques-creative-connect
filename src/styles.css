@@ -13,17 +13,6 @@ h2 {
   font-weight: 700;
 }
 
-/* Deliberate reference match: orange replaces gold only on the homepage. */
-.reference-home {
-  --background: #090909;
-  --card: #202020;
-  --primary: #ff872b;
-  --primary-hover: #ed7520;
-  --primary-foreground: #090909;
-  --accent: #30251c;
-  --accent-foreground: #ff872b;
-  --ring: #ff872b;
-}
 
 .reference-home h1,
 .reference-home h2 {
