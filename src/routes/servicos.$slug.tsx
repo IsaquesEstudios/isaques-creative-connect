@@ -114,13 +114,17 @@ function ServicePage() {
 
         <section aria-labelledby="desafio" className="bg-background py-20">
           <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-5">
-            <div className="space-y-4 lg:col-span-2">
+            <div className="space-y-6 text-muted-foreground lg:col-span-3">
               <Badge>O desafio empresarial</Badge>
-              <DisplayHeading id="desafio">{c.challengeTitle}</DisplayHeading>
-              <img src={workPhoto} alt="Composição ilustrativa de criação digital com notebook e objetos laranja" width={1536} height={1024} loading="lazy" className="w-full rounded-xl" />
-            </div>
-            <div className="space-y-6 text-muted-foreground lg:col-span-3 lg:pt-16">
+              <DisplayHeading id="desafio" className="text-foreground">{c.challengeTitle}</DisplayHeading>
               {c.challenge.map((p) => <p key={p}>{p}</p>)}
+            </div>
+            <div className="lg:col-span-2 lg:pt-16">
+              <Card variant="highlight" padding="lg" className="sticky top-24">
+                <p className="text-xs font-semibold uppercase tracking-wider">Diagnóstico gratuito</p>
+                <p className="mt-4 font-display text-2xl font-bold">Descubra onde sua empresa está perdendo oportunidades.</p>
+                <Button asChild size="sm" variant="outline" className="mt-6"><a href="#contato">Quero meu diagnóstico <ArrowUpRight aria-hidden /></a></Button>
+              </Card>
             </div>
           </div>
         </section>
