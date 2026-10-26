@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Check } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
+import { serviceContent } from "@/lib/service-content";
 import { Accordion, Badge, Button, Card, CardDescription, CardTitle, DisplayHeading, SectionHeader, ServiceCard } from "@/design-system/the-reading-room-697922";
 import { SiteShell } from "@/components/site/SiteShell";
 import { ContactSection } from "@/components/site/ContactSection";
@@ -54,53 +55,84 @@ export const Route = createFileRoute("/servicos/$slug")({
 
 function ServicePage() {
   const { service: s } = Route.useLoaderData();
+  const c = serviceContent[s.slug];
   const others = services.filter((o) => o.slug !== s.slug).slice(0, 3);
 
   return (
     <SiteShell>
       <article>
-        <section className="bg-background">
-          <div className="mx-auto max-w-7xl px-6 py-24">
-            <nav aria-label="Trilha" className="text-sm text-muted-foreground">
-              <Link to="/" className="hover:text-foreground">Início</Link> / <span>Soluções</span>
+        <section className="relative overflow-hidden bg-background">
+          <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 size-96 rotate-45 rounded-2xl border border-primary opacity-30" />
+          <div className="relative mx-auto max-w-7xl px-6 py-24">
+            <nav aria-label="Trilha de navegação">
+              <ol className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                <li><Link to="/" className="hover:text-foreground">Início</Link></li>
+                <li aria-hidden><ChevronRight className="size-4" /></li>
+                <li><a href="/#solucoes" className="hover:text-foreground">Serviços</a></li>
+                <li aria-hidden><ChevronRight className="size-4" /></li>
+                <li aria-current="page" className="text-primary">{s.title}</li>
+              </ol>
             </nav>
-            <Badge variant="outline" size="md" className="mt-6">Solução para empresas</Badge>
-            <DisplayHeading as="h1" size="xl" className="mt-6 max-w-5xl">{s.title}</DisplayHeading>
-            <p className="mt-6 max-w-3xl text-lg text-muted-foreground">{s.intro}</p>
+            <div className="mt-8 flex items-center gap-3">
+              <span aria-hidden className="inline-flex size-12 items-center justify-center rounded-full bg-primary text-primary-foreground [&_svg]:size-5">
+                <ServiceIcon name={s.icon} />
+              </span>
+              <Badge variant="outline" size="md">Solução para empresas</Badge>
+            </div>
+            <DisplayHeading as="h1" size="xl" className="mt-6 max-w-5xl">{c.h1}</DisplayHeading>
+            <p className="mt-6 max-w-3xl text-lg text-muted-foreground">{c.subtitle}</p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <Button asChild size="lg"><a href="#contato">Solicitar Diagnóstico</a></Button>
+              <Button asChild size="lg"><a href="#contato">Solicitar Reunião de Diagnóstico</a></Button>
               <Button asChild size="lg" variant="outline">
-                <a href={whatsappLink(`Olá! Tenho interesse em: ${s.title}`)} target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+                <a href={whatsappLink(`Olá! Tenho interesse em: ${s.title}`)} target="_blank" rel="noopener noreferrer">Falar com Consultor via WhatsApp</a>
               </Button>
             </div>
           </div>
         </section>
 
-        <section className="bg-card py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2">
-            <div className="space-y-4">
-              <DisplayHeading>O que está incluído</DisplayHeading>
-              <p className="text-muted-foreground">{s.short}</p>
+        <section aria-labelledby="desafio" className="bg-card py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-5">
+            <div className="space-y-4 lg:col-span-2">
+              <Badge>O desafio empresarial</Badge>
+              <DisplayHeading id="desafio">{c.challengeTitle}</DisplayHeading>
             </div>
-            <ul className="space-y-4">
-              {s.benefits.map((b) => (
-                <li key={b} className="flex gap-3 rounded-xl bg-elevated p-5">
-                  <Check aria-hidden className="size-5 shrink-0 text-primary" />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-6 text-lg text-muted-foreground lg:col-span-3">
+              {c.challenge.map((p) => <p key={p}>{p}</p>)}
+            </div>
           </div>
         </section>
 
-        <section className="bg-surface-light py-24 text-surface-light-foreground">
+        {c.fronts && (
+          <section aria-labelledby="frentes" className="bg-background py-24">
+            <div className="mx-auto max-w-7xl px-6">
+              <SectionHeader eyebrow="Duas frentes estratégicas" title="Intenção e desejo trabalhando juntos" id="frentes" />
+              <div className="mt-12 grid gap-6 lg:grid-cols-2">
+                {c.fronts.map((f, i) => (
+                  <Card key={f.title} variant={i === 0 ? "highlight" : "outline"} padding="lg">
+                    <p className="text-xs font-semibold uppercase tracking-wider">{f.label}</p>
+                    <h3 className="mt-3 font-display text-2xl font-bold">{f.title}</h3>
+                    <p className="mt-4">{f.text}</p>
+                    <ul className="mt-6 space-y-3">
+                      {f.points.map((pt) => (
+                        <li key={pt} className="flex gap-3"><Check aria-hidden className="mt-1 size-4 shrink-0" />{pt}</li>
+                      ))}
+                    </ul>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        <section aria-labelledby="metodo" className="bg-surface-light py-24 text-surface-light-foreground">
           <div className="mx-auto max-w-7xl px-6">
-            <h2 className="font-display text-3xl font-bold tracking-tight md:text-4xl">Como trabalhamos</h2>
-            <ol className="mt-12 grid gap-6 md:grid-cols-3">
-              {s.steps.map((st, i) => (
+            <p className="text-xs font-semibold uppercase tracking-wider">Após a reunião diagnóstica</p>
+            <h2 id="metodo" className="mt-3 font-display text-3xl font-bold tracking-tight md:text-4xl">Como Executamos (Nosso Método)</h2>
+            <ol className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+              {c.method.map((st, i) => (
                 <li key={st.title} className="rounded-xl border-t-4 border-primary bg-surface-white p-6 shadow-card">
-                  <span className="font-display text-5xl font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-4 font-display text-xl font-bold">{st.title}</h3>
+                  <span className="font-display text-4xl font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="mt-4 font-display text-lg font-bold">{st.title}</h3>
                   <p className="mt-3 text-sm">{st.text}</p>
                 </li>
               ))}
@@ -108,10 +140,25 @@ function ServicePage() {
           </div>
         </section>
 
+        <section aria-labelledby="entregaveis" className="bg-background py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <SectionHeader id="entregaveis" eyebrow="Entregáveis e benefícios" title="O que sua empresa recebe" />
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {c.deliverables.map((d) => (
+                <Card key={d.title} padding="lg">
+                  <Check aria-hidden className="size-6 text-primary" />
+                  <CardTitle className="mt-4">{d.title}</CardTitle>
+                  <CardDescription className="mt-3">{d.text}</CardDescription>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="bg-card py-24">
           <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-3">
-            <SectionHeader eyebrow="FAQ" title="Dúvidas frequentes" />
-            <Accordion className="lg:col-span-2" items={s.faq} defaultOpen={0} />
+            <SectionHeader eyebrow="FAQ" title={`Perguntas frequentes sobre ${s.title.split(" (")[0]}`} />
+            <Accordion className="lg:col-span-2" items={c.faq} defaultOpen={0} />
           </div>
         </section>
       </article>
