@@ -6,8 +6,23 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { ContactSection } from "@/components/site/ContactSection";
 import { ServiceIcon } from "@/components/site/ServiceIcon";
 import { SITE_NAME, getService, services, whatsappLink } from "@/lib/site";
-import teamPhoto from "@/assets/agency-team.jpg";
-import workPhoto from "@/assets/creative-work.jpg";
+import trafegoImg from "@/assets/services/trafego-pago-empresas.jpg";
+import seoImg from "@/assets/services/otimizacao-de-seo.jpg";
+import sitesImg from "@/assets/services/criacao-de-sites-profissionais.jpg";
+import posicionamentoImg from "@/assets/services/posicionamento-digital.jpg";
+import redesImg from "@/assets/services/gestao-de-redes-sociais.jpg";
+import brandingImg from "@/assets/services/identidade-visual-e-branding.jpg";
+import eventosImg from "@/assets/services/cobertura-de-eventos-corporativos.jpg";
+
+const serviceImages: Record<string, { src: string; alt: string }> = {
+  "trafego-pago-empresas": { src: trafegoImg, alt: "Painel de métricas de campanhas de tráfego pago com gráficos em laranja" },
+  "otimizacao-de-seo": { src: seoImg, alt: "Notebook com curva de crescimento de busca orgânica e lupa sobre resultados de pesquisa" },
+  "criacao-de-sites-profissionais": { src: sitesImg, alt: "Computador e celular exibindo o layout de um site profissional em tons de laranja" },
+  "posicionamento-digital": { src: posicionamentoImg, alt: "Mesa de estratégia com bússola e alvo em laranja durante reunião de posicionamento" },
+  "gestao-de-redes-sociais": { src: redesImg, alt: "Criadora de conteúdo gravando vídeo com celular e iluminação circular laranja" },
+  "identidade-visual-e-branding": { src: brandingImg, alt: "Materiais de identidade visual em preto e laranja sobre mesa escura" },
+  "cobertura-de-eventos-corporativos": { src: eventosImg, alt: "Fotógrafo cobrindo evento corporativo com palco iluminado em laranja" },
+};
 
 export const Route = createFileRoute("/servicos/$slug")({
   loader: ({ params }) => {
@@ -65,46 +80,51 @@ function ServicePage() {
     <SiteShell>
       <article>
         <section className="relative overflow-hidden bg-background">
-          <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 text-center md:pb-10 md:pt-20">
-            <nav aria-label="Trilha de navegação">
-              <ol className="flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">
-                <li><Link to="/" className="hover:text-foreground">Início</Link></li>
-                <li aria-hidden><ChevronRight className="size-4" /></li>
-                <li><Link to="/servicos" className="hover:text-foreground">Serviços</Link></li>
-                <li aria-hidden><ChevronRight className="size-4" /></li>
-                <li aria-current="page" className="text-primary">{s.title}</li>
-              </ol>
-            </nav>
-            <div className="mt-8 flex justify-center">
-              <Badge variant="outline" size="md">Solução para empresas</Badge>
+          <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 pb-16 pt-10 md:pt-16 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <nav aria-label="Trilha de navegação">
+                <ol className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
+                  <li><Link to="/" className="hover:text-foreground">Início</Link></li>
+                  <li aria-hidden><ChevronRight className="size-4" /></li>
+                  <li><Link to="/servicos" className="hover:text-foreground">Serviços</Link></li>
+                  <li aria-hidden><ChevronRight className="size-4" /></li>
+                  <li aria-current="page" className="text-primary">{s.title}</li>
+                </ol>
+              </nav>
+              <div className="mt-8">
+                <Badge variant="outline" size="md">Solução para empresas</Badge>
+              </div>
+              <DisplayHeading as="h1" size="xl" className="mt-5">{c.h1}</DisplayHeading>
+              <p className="mt-5 max-w-xl text-sm text-muted-foreground">{c.subtitle}</p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Button asChild size="sm"><a href="#contato">Agendar diagnóstico <ArrowUpRight aria-hidden /></a></Button>
+                <Button asChild size="sm" variant="outline">
+                  <a href={whatsappLink(`Olá! Tenho interesse em: ${s.title}`)} target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
+                </Button>
+              </div>
             </div>
-            <DisplayHeading as="h1" size="xl" className="mx-auto mt-5 max-w-3xl">{c.h1}</DisplayHeading>
-            <p className="mx-auto mt-5 max-w-2xl text-sm text-muted-foreground">{c.subtitle}</p>
-            <div className="mt-6 flex flex-wrap justify-center gap-4">
-              <Button asChild size="sm"><a href="#contato">Agendar diagnóstico <ArrowUpRight aria-hidden /></a></Button>
-              <Button asChild size="sm" variant="outline">
-                <a href={whatsappLink(`Olá! Tenho interesse em: ${s.title}`)} target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
-              </Button>
-            </div>
-          </div>
-          <div className="agency-photo relative mx-auto max-w-7xl overflow-hidden">
-            <img src={teamPhoto} alt="Imagem ilustrativa de profissionais colaborando em uma estratégia de marketing" width={1536} height={1024} className="size-full object-cover" />
-            <div className="photo-caption absolute bottom-0 left-0 flex w-full flex-wrap items-end justify-between gap-4 p-6 md:p-10">
-              <div><p className="font-display text-2xl font-bold md:text-5xl">Ideias grandes.<br />Estratégias reais.</p><p className="mt-3 text-xs uppercase">Isaques Estúdios / {s.title}</p></div>
-              <a href="#contato" className="flex items-center gap-3 text-sm">Vamos conversar <ArrowUpRight aria-hidden /></a>
+            <div className="relative overflow-hidden rounded-2xl border border-border">
+              <img src={serviceImages[s.slug].src} alt={serviceImages[s.slug].alt} width={1536} height={1024} className="aspect-[3/2] size-full object-cover" />
+              <div className="photo-caption absolute bottom-0 left-0 w-full p-6">
+                <p className="text-xs uppercase tracking-wider">Isaques Estúdios / {s.title}</p>
+              </div>
             </div>
           </div>
         </section>
 
         <section aria-labelledby="desafio" className="bg-background py-20">
           <div className="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-5">
-            <div className="space-y-4 lg:col-span-2">
+            <div className="space-y-6 text-muted-foreground lg:col-span-3">
               <Badge>O desafio empresarial</Badge>
               <DisplayHeading id="desafio">{c.challengeTitle}</DisplayHeading>
-              <img src={workPhoto} alt="Composição ilustrativa de criação digital com notebook e objetos laranja" width={1536} height={1024} loading="lazy" className="w-full rounded-xl" />
-            </div>
-            <div className="space-y-6 text-muted-foreground lg:col-span-3 lg:pt-16">
               {c.challenge.map((p) => <p key={p}>{p}</p>)}
+            </div>
+            <div className="lg:col-span-2 lg:pt-16">
+              <Card variant="highlight" padding="lg" className="sticky top-24">
+                <p className="text-xs font-semibold uppercase tracking-wider">Diagnóstico gratuito</p>
+                <p className="mt-4 font-display text-2xl font-bold">Descubra onde sua empresa está perdendo oportunidades.</p>
+                <Button asChild size="sm" variant="outline" className="mt-6"><a href="#contato">Quero meu diagnóstico <ArrowUpRight aria-hidden /></a></Button>
+              </Card>
             </div>
           </div>
         </section>
@@ -134,12 +154,14 @@ function ServicePage() {
         <section aria-labelledby="metodo" className="bg-background py-20">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader id="metodo" eyebrow="Nosso método" title="Da estratégia à execução." />
-            <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <ol className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {c.method.map((st, i) => (
-                <li key={st.title} className="border-t border-border pt-6">
-                  <span className="font-display text-4xl font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="mt-6 font-display text-xl font-semibold">{st.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{st.text}</p>
+                <li key={st.title}>
+                  <Card padding="lg" className="h-full">
+                    <span className="font-display text-4xl font-bold text-primary">{String(i + 1).padStart(2, "0")}</span>
+                    <h3 className="mt-6 font-display text-xl font-semibold">{st.title}</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">{st.text}</p>
+                  </Card>
                 </li>
               ))}
             </ol>
@@ -149,13 +171,13 @@ function ServicePage() {
         <section aria-labelledby="entregaveis" className="bg-background py-20">
           <div className="mx-auto max-w-6xl px-6">
             <SectionHeader id="entregaveis" eyebrow="Entregáveis e benefícios" title="Valor para seu negócio." />
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
+            <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {c.deliverables.map((d) => (
-                <Card key={d.title} padding="lg">
+                <div key={d.title} className="border-t border-border pt-6">
                   <Check aria-hidden className="size-6 text-primary" />
                   <CardTitle className="mt-4">{d.title}</CardTitle>
                   <CardDescription className="mt-3">{d.text}</CardDescription>
-                </Card>
+                </div>
               ))}
             </div>
           </div>
