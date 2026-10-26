@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { Check } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
+import { serviceContent } from "@/lib/service-content";
 import { Accordion, Badge, Button, Card, CardDescription, CardTitle, DisplayHeading, SectionHeader, ServiceCard } from "@/design-system/the-reading-room-697922";
 import { SiteShell } from "@/components/site/SiteShell";
 import { ContactSection } from "@/components/site/ContactSection";
