@@ -1,3 +1,4 @@
 # Project conventions
 - Scope the shared reference-inspired theme to `.reference-home` on the homepage and service pages so their presentation stays consistent without affecting unrelated routes.
 - Compose the attached design-system components, with contact presentation selected by a variant so its form behavior remains shared.
+- The brand mark lives in one place: the `Logo` component in `src/components/site/SiteHeader.tsx` renders it from the CDN asset pointer `src/assets/logo-isaques.png.asset.json`, and every header/footer reuses that component instead of duplicating the mark. The favicon is a separate square copy in `public/` (a real file, never a pointer) declared from the root route, because browser icon requests cannot resolve CDN asset paths.
