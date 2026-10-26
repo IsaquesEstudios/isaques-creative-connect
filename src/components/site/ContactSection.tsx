@@ -71,7 +71,7 @@ export function ContactSection() {
           <Card variant="highlight" padding="lg" className="flex flex-col justify-between gap-8 lg:col-span-2">
             <div className="space-y-4">
               <MessageCircle aria-hidden className="size-10" />
-              <DisplayHeading as="h3" size="md">Prefere um atendimento imediato?</DisplayHeading>
+              <h3 className="font-display text-2xl font-bold">Prefere um atendimento imediato?</h3>
               <p>Fale direto com um consultor no WhatsApp Comercial e tire suas dúvidas agora, sem formulários.</p>
             </div>
             <Button asChild variant="secondary" size="lg" className="w-full">
