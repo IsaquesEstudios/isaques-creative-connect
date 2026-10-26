@@ -3,12 +3,16 @@ import { Link } from "@tanstack/react-router";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { Button, IconButton } from "@/design-system/the-reading-room-697922";
 import { SITE_NAME, services } from "@/lib/site";
+import logoAsset from "@/assets/logo-isaques.png.asset.json";
 
 export function Logo() {
   const [first, ...rest] = SITE_NAME.split(" ");
   return (
-    <Link to="/" className="font-display text-xl font-bold tracking-tight text-foreground">
-      {first} <span className="text-primary">{rest.join(" ")}</span>
+    <Link to="/" aria-label={`${SITE_NAME} — ir para o início`} className="flex items-center gap-3">
+      <img src={logoAsset.url} alt="" aria-hidden className="h-9 w-auto shrink-0" />
+      <span className="font-display text-xl font-bold tracking-tight text-foreground">
+        {first} <span className="text-primary">{rest.join(" ")}</span>
+      </span>
     </Link>
   );
 }
