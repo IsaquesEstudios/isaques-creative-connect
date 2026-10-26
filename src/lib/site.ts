@@ -217,6 +217,11 @@ export function getService(slug: string) {
   return services.find((s) => s.slug === slug);
 }
 
+/** Título curto usado nos menus: remove o trecho entre parênteses. */
+export function menuTitle(title: string) {
+  return title.replace(/\s*\([^)]*\)/g, "").trim();
+}
+
 export const homeFaq = [
   {
     question: "Como funciona a reunião apresentativa de diagnóstico?",
