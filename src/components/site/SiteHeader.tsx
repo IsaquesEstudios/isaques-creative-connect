@@ -14,9 +14,10 @@ export function Logo() {
 }
 
 const links = [
-  { label: "Início", href: "/#inicio" },
-  { label: "8 Anos de Experiência", href: "/#experiencia" },
-  { label: "Metodologia", href: "/#metodologia" },
+  { label: "Início", to: "/" as const },
+  { label: "Blog", to: "/blog" as const },
+  { label: "Sobre Nós", to: "/sobre-nos" as const },
+  { label: "Contato", to: "/contato" as const },
 ];
 
 export function SiteHeader() {
@@ -28,14 +29,12 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-4">
         <Logo />
         <nav aria-label="Principal" className="hidden items-center gap-6 lg:flex">
-          {links.map((l) => (
-            <a key={l.href} href={l.href} className="text-sm text-muted-foreground hover:text-foreground">
-              {l.label}
-            </a>
-          ))}
+          <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">
+            Início
+          </Link>
           <div className="group relative">
             <button type="button" className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
-              Soluções <ChevronDown aria-hidden className="size-4" />
+              Serviços <ChevronDown aria-hidden className="size-4" />
             </button>
             <div className="invisible absolute left-0 top-full pt-3 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
               <ul className="w-80 rounded-xl border border-border bg-popover p-2 shadow-card">
