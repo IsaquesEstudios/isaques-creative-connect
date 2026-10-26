@@ -15,6 +15,8 @@ import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as SobreNosRouteImport } from './routes/sobre-nos'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as EmpresaDeMarketingDigitalEmIndexRouteImport } from './routes/empresa-de-marketing-digital-em.index'
+import { Route as EmpresaDeMarketingDigitalEmSlugRouteImport } from './routes/empresa-de-marketing-digital-em.$slug'
 import { Route as ServicosIndexRouteImport } from './routes/servicos.index'
 import { Route as ServicosSlugRouteImport } from './routes/servicos.$slug'
 import { Route as Char91__componentChar93PreviewSplatRouteImport } from './routes/[__component].preview.$'
@@ -50,6 +52,18 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const EmpresaDeMarketingDigitalEmIndexRoute =
+  EmpresaDeMarketingDigitalEmIndexRouteImport.update({
+    id: '/empresa-de-marketing-digital-em/',
+    path: '/empresa-de-marketing-digital-em/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const EmpresaDeMarketingDigitalEmSlugRoute =
+  EmpresaDeMarketingDigitalEmSlugRouteImport.update({
+    id: '/empresa-de-marketing-digital-em/$slug',
+    path: '/empresa-de-marketing-digital-em/$slug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ServicosIndexRoute = ServicosIndexRouteImport.update({
   id: '/servicos/',
   path: '/servicos/',
@@ -79,8 +93,10 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/sobre-nos': typeof SobreNosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/empresa-de-marketing-digital-em/$slug': typeof EmpresaDeMarketingDigitalEmSlugRoute
   '/servicos/$slug': typeof ServicosSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/empresa-de-marketing-digital-em/': typeof EmpresaDeMarketingDigitalEmIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
@@ -90,8 +106,10 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/sobre-nos': typeof SobreNosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/empresa-de-marketing-digital-em/$slug': typeof EmpresaDeMarketingDigitalEmSlugRoute
   '/servicos/$slug': typeof ServicosSlugRoute
   '/blog': typeof BlogIndexRoute
+  '/empresa-de-marketing-digital-em': typeof EmpresaDeMarketingDigitalEmIndexRoute
   '/servicos': typeof ServicosIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
@@ -103,8 +121,10 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/sobre-nos': typeof SobreNosRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/empresa-de-marketing-digital-em/$slug': typeof EmpresaDeMarketingDigitalEmSlugRoute
   '/servicos/$slug': typeof ServicosSlugRoute
   '/blog/': typeof BlogIndexRoute
+  '/empresa-de-marketing-digital-em/': typeof EmpresaDeMarketingDigitalEmIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
@@ -117,8 +137,10 @@ export interface FileRouteTypes {
     | '/contato'
     | '/sobre-nos'
     | '/blog/$slug'
+    | '/empresa-de-marketing-digital-em/$slug'
     | '/servicos/$slug'
     | '/blog/'
+    | '/empresa-de-marketing-digital-em/'
     | '/servicos/'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
@@ -128,8 +150,10 @@ export interface FileRouteTypes {
     | '/contato'
     | '/sobre-nos'
     | '/blog/$slug'
+    | '/empresa-de-marketing-digital-em/$slug'
     | '/servicos/$slug'
     | '/blog'
+    | '/empresa-de-marketing-digital-em'
     | '/servicos'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
@@ -140,8 +164,10 @@ export interface FileRouteTypes {
     | '/contato'
     | '/sobre-nos'
     | '/blog/$slug'
+    | '/empresa-de-marketing-digital-em/$slug'
     | '/servicos/$slug'
     | '/blog/'
+    | '/empresa-de-marketing-digital-em/'
     | '/servicos/'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
@@ -152,7 +178,9 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRouteWithChildren
   ContatoRoute: typeof ContatoRoute
   SobreNosRoute: typeof SobreNosRoute
+  EmpresaDeMarketingDigitalEmSlugRoute: typeof EmpresaDeMarketingDigitalEmSlugRoute
   ServicosSlugRoute: typeof ServicosSlugRoute
+  EmpresaDeMarketingDigitalEmIndexRoute: typeof EmpresaDeMarketingDigitalEmIndexRoute
   ServicosIndexRoute: typeof ServicosIndexRoute
   Char91__componentChar93PreviewSplatRoute: typeof Char91__componentChar93PreviewSplatRoute
   Char91__mockupChar93PreviewSplatRoute: typeof Char91__mockupChar93PreviewSplatRoute
@@ -202,6 +230,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/empresa-de-marketing-digital-em/': {
+      id: '/empresa-de-marketing-digital-em/'
+      path: '/empresa-de-marketing-digital-em'
+      fullPath: '/empresa-de-marketing-digital-em/'
+      preLoaderRoute: typeof EmpresaDeMarketingDigitalEmIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/empresa-de-marketing-digital-em/$slug': {
+      id: '/empresa-de-marketing-digital-em/$slug'
+      path: '/empresa-de-marketing-digital-em/$slug'
+      fullPath: '/empresa-de-marketing-digital-em/$slug'
+      preLoaderRoute: typeof EmpresaDeMarketingDigitalEmSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/servicos/': {
       id: '/servicos/'
       path: '/servicos'
@@ -250,7 +292,9 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRouteWithChildren,
   ContatoRoute: ContatoRoute,
   SobreNosRoute: SobreNosRoute,
+  EmpresaDeMarketingDigitalEmSlugRoute: EmpresaDeMarketingDigitalEmSlugRoute,
   ServicosSlugRoute: ServicosSlugRoute,
+  EmpresaDeMarketingDigitalEmIndexRoute: EmpresaDeMarketingDigitalEmIndexRoute,
   ServicosIndexRoute: ServicosIndexRoute,
   Char91__componentChar93PreviewSplatRoute:
     Char91__componentChar93PreviewSplatRoute,
