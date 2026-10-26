@@ -86,7 +86,7 @@ function Index() {
     <div className="reference-home">
       <SiteShell>
         <section id="inicio" className="relative overflow-hidden bg-background">
-          <div className="mx-auto max-w-7xl px-6 pb-10 pt-16 text-center md:pt-20">
+          <div className="mx-auto max-w-7xl px-6 pb-8 pt-10 text-center md:pb-10 md:pt-20">
             <Badge variant="outline">Isaques Estúdios · Estratégia & Performance</Badge>
             <DisplayHeading as="h1" size="xl" className="mx-auto mt-5 max-w-3xl">
               Empresa de marketing <Highlight>digital.</Highlight>
@@ -101,7 +101,7 @@ function Index() {
           <div className="agency-photo relative mx-auto max-w-7xl overflow-hidden">
             <img src={teamPhoto} alt="Imagem ilustrativa de profissionais colaborando em uma estratégia de marketing" width={1536} height={1024} className="size-full object-cover" />
             <div className="photo-caption absolute bottom-0 left-0 flex w-full flex-wrap items-end justify-between gap-4 p-6 md:p-10">
-              <div><p className="font-display text-3xl font-bold md:text-5xl">Ideias grandes.<br />Estratégias reais.</p><p className="mt-3 text-xs uppercase">Isaques Estúdios / Marketing para empresas</p></div>
+              <div><p className="font-display text-2xl font-bold md:text-5xl">Ideias grandes.<br />Estratégias reais.</p><p className="mt-3 text-xs uppercase">Isaques Estúdios / Marketing para empresas</p></div>
               <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm">Vamos conversar <ArrowUpRight aria-hidden /></a>
             </div>
           </div>

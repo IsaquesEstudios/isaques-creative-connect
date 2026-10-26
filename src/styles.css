@@ -36,7 +36,7 @@ h2 {
 }
 
 .agency-photo img {
-  object-position: center;
+  object-position: top;
 }
 
 .photo-caption {
@@ -45,6 +45,6 @@ h2 {
 
 @media (width < 48rem) {
   .agency-photo {
-    height: calc(var(--spacing) * 96);
+    height: calc(var(--spacing) * 72);
   }
 }

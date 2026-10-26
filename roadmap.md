@@ -1,3 +1,3 @@
 # Adaptação visual
-- [ ] Adaptar a página inicial à referência, preservando conteúdo e links.
-- [ ] Verificar fotos, navegação e formulário no navegador.
+- [x] Adaptar a página inicial à referência, preservando conteúdo e links.
+- [x] Verificar fotos, navegação e formulário no navegador.
